@@ -1,8 +1,11 @@
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+
+dotenv.config({path:'./sample.env'})
 
 const connectDB = async()=>{
 	try{
-		await mongoose.connect("mongodb+srv://Eazyguy:johnsona@cluster0.gxzm5y2.mongodb.net/exercise")
+		await mongoose.connect(process.env.DATABASE)
 		
 		console.log("Database Connected")
 	}catch(err){
